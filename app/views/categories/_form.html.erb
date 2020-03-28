@@ -1,0 +1,9 @@
+<%= form_for(@category) do |f| %>
+	<%= f.label :name %> <br>
+	<% if @category.errors[:name].any? %>
+		<%= @category.errors[:name].first %>
+	<% end %>
+	<%= f.text_field :name %> <br>
+
+	<%= f.submit 'Save' %>
+<% end %>

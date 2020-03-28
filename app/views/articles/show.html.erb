@@ -1,0 +1,30 @@
+<p>
+	<strong>Title:</strong>
+	<%= @article.title %>
+</p>
+
+<p>
+	<strong>Category:</strong>
+	<%= @article.category.name %>
+</p>
+
+
+<p>
+	<strong>Description:</strong>
+	<%= @article.description %>
+</p>
+
+<%= form_for [@article, @comment] do |f| %>
+	<%= f.label :comment %> <br>
+	<% if @comment.errors[:comment].any? %>
+		<%= @comment.errors[:comment].first %>
+	<% end %>
+	<%= f.text_area :comment  %> <br>
+
+	<%= f.submit 'Save' %>
+<% end %>
+
+<p>
+	<strong>Comments:</strong>
+	<%= render @article.comments %>
+</p>

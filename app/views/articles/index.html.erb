@@ -1,0 +1,32 @@
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Category</th>
+			<th>Comments Count</th>
+			<th>Latest Comments</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<% @articles.each do |article| %>
+		<thead>
+			<tr>
+				<td><%= article.title %></td>
+				<td><%= article.category %></td>
+				<td><%= article.comments_count %></td>
+				<td><%= article.latest_comments %></td>
+				<td><%#= link_to 'Show', article_path(article) %>
+					<%= link_to 'Show', article_path(article[:id]) %>
+				</td>
+				<td><%#= link_to 'Edit', edit_article_path(article) %>
+					<%= link_to 'Edit', edit_article_path(article[:id]) %>
+				</td>
+				<td><%#= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
+					<%= link_to 'Delete', article_path(article[:id]), method: :delete, data: { confirm: 'Are you sure?' } %>
+				</td>
+			</tr>
+		</thead>
+	<% end%>
+</table>
+
+<%= link_to 'New', new_article_path %>

@@ -1,0 +1,21 @@
+<%= form_for(@article) do |f| %>
+	<%= f.label :title %> <br>
+	<% if @article.errors[:title].any? %>
+		<%= @article.errors[:title].first %>
+	<% end %>
+	<%= f.text_field :title %> <br>
+
+	<%= f.label :category_id %> <br>
+	<% if @article.errors[:category_id].any? %>
+		<%= @article.errors[:category_id].first %>
+	<% end %>
+	<%= f.select :category_id, @categories %> <br>
+
+	<%= f.label :description %> <br>
+	<% if @article.errors[:description].any? %>
+		<%= @article.errors[:description].first %>
+	<% end %>
+	<%= f.text_area :description %> <br>
+
+	<%= f.submit 'Save' %>
+<% end %>
